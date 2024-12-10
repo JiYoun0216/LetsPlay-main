@@ -94,7 +94,7 @@
             android:id="@+id/micButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/Mic"
+            android:src="@drawable/mic"
             android:layout_marginStart="442dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="23dp"

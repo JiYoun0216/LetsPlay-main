@@ -3,52 +3,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/skyblue"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <!-- 캐릭터 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/skyblue"
-        android:orientation="vertical">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="353dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="199dp"
-            android:layout_marginTop="49dp"
-            android:background="@drawable/speech_bubble"
-            android:paddingLeft="40dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="30dp">
-
-
-            <!-- 텍스트 내용 -->
-
-            <TextView
-                android:id="@+id/messageText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="14dp"
-                android:text="안녕! 난 너의 친구야! \n나랑 역할놀이 해볼까?"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-
-            <!-- 현재 시간 -->
-            <TextView
-                android:id="@+id/timeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="425dp"
-                android:text="12:34 PM"
-                android:textColor="#888888"
-                android:textSize="12sp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-
-
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,6 +17,27 @@
         android:layout_marginStart="65dp"
         android:contentDescription="chat character" />
 
+    <!-- 대화 내용 리스트 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="100dp"
+        android:scrollbars="vertical" />
+
+    <!-- 좋아 이미지 -->
+    <ImageView
+        android:id="@+id/goodtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="205dp"
+        android:layout_marginTop="145dp"
+        android:src="@drawable/goodtext"
+        android:visibility="gone" />
+
+    <!-- 메뉴 버튼 -->
     <ImageView
         android:id="@+id/menu_button"
         android:layout_width="wrap_content"
@@ -66,19 +47,31 @@
         android:layout_marginStart="839dp"
         android:contentDescription="menu button" />
 
-    <ImageView
-        android:id="@+id/delayedImage"
+    <!-- 마이크를 터치하고 말해보자 -->
+    <FrameLayout
+        android:id="@+id/mike_touch_popup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/goodtext"
-        android:visibility="gone" />
+        android:background="@drawable/mike_touch_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="276dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마이크 터치하고 말해보자!"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        >
+        android:layout_gravity="bottom">
 
         <!-- 아래 채팅창 -->
         <ImageButton
@@ -94,7 +87,7 @@
             android:id="@+id/micButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mic"
+            android:src="@drawable/mike"
             android:layout_marginStart="442dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="23dp"

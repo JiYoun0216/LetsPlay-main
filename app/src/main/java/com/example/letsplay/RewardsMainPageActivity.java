@@ -58,8 +58,8 @@ private void parent_verifyng_popup() {
     // 문제 생성 및 정답 설정 함수
     Runnable updateQuestion = () -> {
         Random random = new Random();
-        int num1 = random.nextInt(9) + 1; // 1~9
-        int num2 = random.nextInt(9) + 1; // 1~9
+        int num1 = random.nextInt(5) + 1; // 1~5
+        int num2 = random.nextInt(5) + 1; // 1~5
         correctAnswer = num1 + num2; // 정답 계산
         questionText.setText(String.format("%d + %d = ", num1, num2));
         answerText.setText("?"); // '?'로 초기화

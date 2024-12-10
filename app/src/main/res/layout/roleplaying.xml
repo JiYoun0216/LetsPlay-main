@@ -1,43 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent">
+
+    <!-- 캐릭터 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/skyblue"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="353dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="199dp"
+            android:layout_marginTop="49dp"
+            android:background="@drawable/speech_bubble"
+            android:paddingLeft="40dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="30dp">
+
+
+            <!-- 텍스트 내용 -->
+
+            <TextView
+                android:id="@+id/messageText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="14dp"
+                android:text="안녕! 난 너의 친구야! \n나랑 역할놀이 해볼까?"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <!-- 현재 시간 -->
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="425dp"
+                android:text="12:34 PM"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/roleplaying_initial_setup" />
+        android:src="@drawable/character"
+        android:layout_marginTop="34dp"
+        android:layout_marginStart="65dp"
+        android:contentDescription="chat character" />
 
-    <ImageButton
-        android:id="@+id/mike_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:src="@drawable/mike_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
-        app:layout_constraintHorizontal_bias="0.5"/>
-
-    <ImageButton
+    <ImageView
         android:id="@+id/menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@null"
         android:src="@drawable/menu_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
-        app:layout_constraintHorizontal_bias="0.98"/>
+        android:layout_marginTop="31dp"
+        android:layout_marginStart="839dp"
+        android:contentDescription="menu button" />
 
+    <ImageView
+        android:id="@+id/delayedImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/goodtext"
+        android:visibility="gone" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 아래 채팅창 -->
+        <ImageButton
+            android:id="@+id/chat_mic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chat_mic"
+            android:background="@null"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- 마이크 버튼 -->
+        <ImageView
+            android:id="@+id/micButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/Mic"
+            android:layout_marginStart="442dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="23dp"
+            android:gravity="center_horizontal"
+            android:background="@null"
+            android:contentDescription="microphone" />
+
+        <!-- 좌측 주파수 애니메이션 -->
+        <ImageView
+            android:id="@+id/leftFrequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/frequency_bar"
+            android:layout_marginStart="360dp"/>
+
+        <!-- 우측 주파수 애니메이션 -->
+        <ImageView
+            android:id="@+id/rightFrequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="488dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/frequency_bar2"/>
+    </FrameLayout>
+
+</FrameLayout>

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 
 import android.os.Bundle;
@@ -113,7 +114,7 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
             Toast.makeText(this, "녹음 파일이 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
             return;
         }
-        AudioWebSocketClient audioWebSocketClient = new AudioWebSocketClient(serverURL_wss);
+        AudioWebSocketClient audioWebSocketClient = new AudioWebSocketClient(this, serverURL_wss);
 
         audioWebSocketClient.sendAudioData(wavFile);
     }

@@ -1,6 +1,7 @@
 package com.example.letsplay;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -70,6 +71,14 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         chatRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         chatRecyclerView.setAdapter(chatAdapter);
 
+        // 메뉴 버튼 클릭 이벤트 추가
+        ImageButton menuButton = findViewById(R.id.menu_button);
+        menuButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RoleplayingBackgroundActivity.this, MenuActivity.class);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            startActivity(intent);
+        });
+
         // View 초기화
         mike_touch_popup = findViewById(R.id.mike_touch_popup);
         leftFrequency = findViewById(R.id.leftFrequency);
@@ -82,8 +91,6 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         handler.postDelayed(() -> {
             mike_touch_popup.setVisibility(View.VISIBLE);
         }, 4000);
-
-        //addUserMessage("안녕! 난 지연이야");
 
         // 마이크 버튼 동작 설정
         chatMic = findViewById(R.id.chat_mic);

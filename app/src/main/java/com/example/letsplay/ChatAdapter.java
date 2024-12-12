@@ -1,5 +1,6 @@
 package com.example.letsplay;
 
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-import java.util.logging.LogRecord;
-
 import android.os.Handler;
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -20,12 +19,11 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_GPT = 2;   // GPT 말풍선 (왼쪽)
 
     private final List<ChatMessage> messages;
-    private final Handler handler = new Handler();
+    private final Handler handler = new Handler(Looper.getMainLooper());
+
     public ChatAdapter(List<ChatMessage> messages) {
         this.messages = messages;
     }
-
-
 
     @Override
     public int getItemViewType(int position) {
@@ -60,6 +58,8 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     private void startTypingAnimation(UserViewHolder holder) {
+        holder.stopTypingAnimation(); // 기존 애니메이션 중지
+
         Runnable typingRunnable = new Runnable() {
             int dotCount = 0;
 
@@ -76,6 +76,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 }
             }
         };
+        holder.setTypingRunnable(typingRunnable);
         handler.post(typingRunnable);
     }
 
@@ -87,6 +88,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     static class UserViewHolder extends RecyclerView.ViewHolder {
         private final TextView messageText;
         private final TextView messageTime;
+        private Runnable typingRunnable;
 
         UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,6 +99,17 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         void bind(ChatMessage message) {
             messageText.setText(message.getMessage());
             messageTime.setText(message.getTimestamp());
+        }
+
+        void setTypingRunnable(Runnable typingRunnable) {
+            this.typingRunnable = typingRunnable;
+        }
+
+        void stopTypingAnimation() {
+            if (typingRunnable != null) {
+                messageText.removeCallbacks(typingRunnable);
+                typingRunnable = null;
+            }
         }
     }
 

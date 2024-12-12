@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/skyblue">
+
+    <!-- 캐릭터 -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/character"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:contentDescription="chat character" />
+
+
+    <!-- 대화 내용 리스트 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="100dp"
+        android:scrollbars="vertical" />
+
+    <!-- 좋아 이미지 -->
+    <ImageView
+        android:id="@+id/goodtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="135dp"
+        android:src="@drawable/goodtext"
+        android:visibility="gone" />
+
+    <!-- 메뉴 버튼 -->
+    <ImageView
+        android:id="@+id/menu_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_button"
+        android:layout_marginTop="31dp"
+        android:layout_marginStart="839dp"
+        android:contentDescription="menu button" />
+
+    <!-- 마이크를 터치하고 말해보자 -->
+    <FrameLayout
+        android:id="@+id/mike_touch_popup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mike_touch_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="300dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마이크 터치하고 말해보자!"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <!-- 하단 인터페이스 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <!-- 아래 채팅창 -->
+        <ImageButton
+            android:id="@+id/chat_mic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chat_mic"
+            android:background="@null"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- 주파수 및 마이크 버튼 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- 좌측 주파수 애니메이션 -->
+            <ImageView
+                android:id="@+id/leftFrequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/frequency_bar" />
+
+            <!-- 마이크 버튼 -->
+            <ImageView
+                android:id="@+id/micButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:background="@null"
+                android:contentDescription="microphone"
+                android:src="@drawable/mike" />
+
+            <!-- 우측 주파수 애니메이션 -->
+            <ImageView
+                android:id="@+id/rightFrequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/frequency_bar2" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

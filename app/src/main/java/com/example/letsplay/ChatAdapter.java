@@ -92,7 +92,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         UserViewHolder(@NonNull View itemView) {
             super(itemView);
             messageText = itemView.findViewById(R.id.messageText);
-            bubbleBackground = itemView.findViewById(R.id.bubbleBackground);
+            bubbleBackground = itemView.findViewById(R.id.bubbleBackground_user);
             messageTime = itemView.findViewById(R.id.messageTime);
         }
 
@@ -111,7 +111,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         GptViewHolder(@NonNull View itemView) {
             super(itemView);
             messageText = itemView.findViewById(R.id.messageText);
-            bubbleBackground = itemView.findViewById(R.id.bubbleBackground);
+            bubbleBackground = itemView.findViewById(R.id.bubbleBackground_gpt);
             messageTime = itemView.findViewById(R.id.messageTime);
         }
 

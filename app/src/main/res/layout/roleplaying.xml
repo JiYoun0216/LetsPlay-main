@@ -18,6 +18,9 @@
 
 
     <!-- 대화 내용 리스트 -->
+
+
+    <!-- 메뉴 버튼 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
@@ -27,17 +30,6 @@
         android:paddingBottom="100dp"
         android:scrollbars="vertical" />
 
-    <!-- 좋아 이미지 -->
-    <ImageView
-        android:id="@+id/goodtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="135dp"
-        android:src="@drawable/goodtext"
-        android:visibility="gone" />
-
-    <!-- 메뉴 버튼 -->
     <ImageView
         android:id="@+id/menu_button"
         android:layout_width="wrap_content"
@@ -53,9 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/mike_touch_text"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="300dp"
-        android:visibility="gone">
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="60dp"
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"

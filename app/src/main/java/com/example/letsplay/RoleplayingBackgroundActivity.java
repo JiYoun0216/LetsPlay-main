@@ -39,8 +39,6 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
     private boolean permissionToRecordAccepted = false;
     private final String[] permissions = {Manifest.permission.RECORD_AUDIO};
 
-
-    private ImageView goodtext;
     private FrameLayout mike_touch_popup;
     private ImageView leftFrequency;
     private ImageView rightFrequency;
@@ -61,6 +59,7 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roleplaying);
 
+
         // 권한 요청
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
 
@@ -72,7 +71,6 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         chatRecyclerView.setAdapter(chatAdapter);
 
         // View 초기화
-        goodtext = findViewById(R.id.goodtext);
         mike_touch_popup = findViewById(R.id.mike_touch_popup);
         leftFrequency = findViewById(R.id.leftFrequency);
         rightFrequency = findViewById(R.id.rightFrequency);
@@ -82,7 +80,6 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         addGptMessage("안녕! 난 너의 친구야! 나랑 역할놀이 해볼까?");
         // 4초 후 goodtext와 mike_touch_popup 표시
         handler.postDelayed(() -> {
-            goodtext.setVisibility(View.VISIBLE);
             mike_touch_popup.setVisibility(View.VISIBLE);
         }, 4000);
 
@@ -115,8 +112,7 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
                     System.err.println("녹음 중 오류 발생");
                 }
             }
-            // 마이크 버튼 클릭 시 mike_touch_popup과 goodtext 숨기기
-            goodtext.setVisibility(View.GONE);
+            // 마이크 버튼 클릭 시 mike_touch_popup 숨기기
             mike_touch_popup.setVisibility(View.GONE);
         });
     }

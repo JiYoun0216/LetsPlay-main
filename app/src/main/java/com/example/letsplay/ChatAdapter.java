@@ -86,39 +86,33 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     static class UserViewHolder extends RecyclerView.ViewHolder {
         private final TextView messageText;
-        private final ImageView bubbleBackground;
         private final TextView messageTime;
 
         UserViewHolder(@NonNull View itemView) {
             super(itemView);
             messageText = itemView.findViewById(R.id.messageText);
-            bubbleBackground = itemView.findViewById(R.id.bubbleBackground_user);
             messageTime = itemView.findViewById(R.id.messageTime);
         }
 
         void bind(ChatMessage message) {
             messageText.setText(message.getMessage());
             messageTime.setText(message.getTimestamp());
-            bubbleBackground.setImageResource(R.drawable.user_bubble);
         }
     }
 
     static class GptViewHolder extends RecyclerView.ViewHolder {
         private final TextView messageText;
-        private final ImageView bubbleBackground;
         private final TextView messageTime;
 
         GptViewHolder(@NonNull View itemView) {
             super(itemView);
             messageText = itemView.findViewById(R.id.messageText);
-            bubbleBackground = itemView.findViewById(R.id.bubbleBackground_gpt);
             messageTime = itemView.findViewById(R.id.messageTime);
         }
 
         void bind(ChatMessage message) {
             messageText.setText(message.getMessage());
             messageTime.setText(message.getTimestamp());
-            bubbleBackground.setImageResource(R.drawable.gpt_bubble);
         }
     }
 }

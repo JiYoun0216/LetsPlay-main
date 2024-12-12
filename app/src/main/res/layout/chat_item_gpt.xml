@@ -8,13 +8,6 @@
     android:layout_marginTop="30dp"
     android:padding="8dp">
 
-    <!-- 말풍선 배경 이미지 -->
-    <ImageView
-        android:id="@+id/bubbleBackground_gpt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:src="@drawable/gpt_bubble" />
 
     <!-- 메시지와 시간 컨테이너 -->
     <LinearLayout
@@ -23,8 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:orientation="vertical"
-        android:padding="12dp"
-        android:layout_marginLeft="35dp">
+        android:padding="4dp"
+        android:background="@drawable/gpt_bubble"
+        android:layout_marginLeft="15dp">
 
 
         <!-- 메시지 텍스트 -->
@@ -33,7 +27,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginStart="40dp"
+            android:padding="20dp"
+            android:maxWidth="500dp"/>
 
 
         <!-- 시간 텍스트 -->
@@ -42,9 +39,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="@android:color/black"
+            android:textColor="#A7A7A7"
             android:textSize="12sp"
-            android:paddingTop="4dp" />
+            android:paddingEnd="30dp"
+            android:layout_marginBottom="20dp"/>
     </LinearLayout>
 
 </FrameLayout>

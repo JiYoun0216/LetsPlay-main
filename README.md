@@ -1,42 +1,62 @@
-Let's Play: 아동 역할놀이 AI 챗봇 앱
-Let's Play는 아동을 위한 대화형 역할놀이 안드로이드 애플리케이션입니다. AI 챗봇과의 실시간 음성 상호작용을 통해 아이들의 언어 발달과 창의력 향상을 돕습니다.
-주요 기능
-AI 챗봇과의 역할놀이: 음성 인식과 AI 응답을 통한 실시간 대화형 역할놀이
-음성 녹음 및 처리: 사용자의 음성을 녹음하고 서버로 전송하여 AI 응답 생성
-실시간 채팅 인터페이스: RecyclerView를 사용한 대화 내용 표시
-애니메이션 효과: 녹음 중 주파수 애니메이션으로 시각적 피드백 제공
-권한 관리: 오디오 녹음 권한 요청 및 처리
-메뉴 시스템: 다양한 옵션과 설정을 위한 메뉴 인터페이스
-주요 액티비티
-MainActivity: 앱의 시작점, 시작 버튼을 통해 GreetingActivity로 이동
-GreetingActivity: 인사 화면 표시 후 PrivacyPolicyActivity로 자동 전환
-PrivacyPolicyActivity: 개인정보 처리방침 표시
-PermissionAppActivity: 앱 권한 요청 및 관리
-RewardsMainPageActivity: 보상 시스템 메인 페이지
-RoleplayingBackgroundActivity: 핵심 역할놀이 기능 구현
-MenuActivity: 앱 설정 및 추가 기능 접근을 위한 메뉴
-EndingActivity: 앱 종료 화면
-SplashEndingActivity: 종료 애니메이션 표시 후 앱 완전 종료
-기술 스택
-언어: Java
-프레임워크: Android SDK
-네트워크: WebSocket (서버 통신용)
-음성 처리: WAVRecorder (커스텀 녹음 클래스)
-설치 및 실행
-프로젝트를 Android Studio에서 열기
-필요한 SDK 및 라이브러리 설치
-에뮬레이터 또는 실제 기기에서 앱 실행
-권한
-RECORD_AUDIO: 음성 녹음용
-INTERNET: 서버 통신용
-READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE: 음성 파일 저장용
-주의사항
-앱 사용을 위해 오디오 녹음 권한이 필요합니다.
-안정적인 인터넷 연결이 필요합니다.
-서버 URL 설정이 필요합니다 (RoleplayingBackgroundActivity의 serverURL_wss 변수).
-향후 개선 사항
-다국어 지원 추가
-오프라인 모드 구현
-사용자 프로필 및 진행 상황 저장 기능
-라이선스
-이 프로젝트는 MIT 라이선스 하에 있습니다. 자세한 내용은 LICENSE 파일을 참조하세요.
+# Let's Play: AI Chatbot Role-Playing App for Children
+
+Let's Play is an Android application designed for interactive role-playing experiences for children. It utilizes real-time voice interactions with an AI chatbot to enhance language development and creativity in kids.
+
+## Key Features
+
+- **AI Chatbot Role-Playing**: Real-time conversational role-play through voice recognition and AI responses
+- **Voice Recording and Processing**: Records user's voice and sends it to the server for AI response generation
+- **Real-time Chat Interface**: Displays conversation content using RecyclerView
+- **Animation Effects**: Provides visual feedback with frequency animation during recording
+- **Permission Management**: Requests and handles audio recording permissions
+- **Menu System**: Menu interface for various options and settings
+
+## Main Activities
+
+1. **MainActivity**: Entry point of the app
+2. **GreetingActivity**: Displays greeting screen
+3. **PrivacyPolicyActivity**: Shows privacy policy
+4. **PermissionAppActivity**: Manages app permissions
+5. **RewardsMainPageActivity**: Main page for the reward system
+6. **RoleplayingBackgroundActivity**: Implements core role-playing functionality
+7. **MenuActivity**: Provides access to app settings and additional features
+8. **EndingActivity**: App closing screen
+9. **SplashEndingActivity**: Displays closing animation before fully exiting the app
+
+## Technology Stack
+
+- Language: Java
+- Framework: Android SDK
+- Networking: WebSocket (for server communication)
+- Audio Processing: WAVRecorder (custom recording class)
+
+## Installation and Running
+
+1. Open the project in Android Studio
+2. Install necessary SDKs and libraries
+3. Run the app on an emulator or physical device
+
+## Permissions
+
+- `RECORD_AUDIO`: For voice recording
+- `INTERNET`: For server communication
+- `READ_EXTERNAL_STORAGE`, `WRITE_EXTERNAL_STORAGE`: For saving voice files
+
+## Notes
+
+- Audio recording permission is required for app usage
+- Stable internet connection is necessary
+- Server URL needs to be set (in `serverURL_wss` variable of RoleplayingBackgroundActivity)
+
+## Future Improvements
+
+- Add multi-language support
+- Implement offline mode
+- Add user profile and progress saving features
+
+## License
+
+This project is under the MIT License. See the LICENSE file for details.
+
+Citations:
+[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/43969710/0a0d7c77-fe6d-44ec-9f37-3d50f90dc93d/paste.txt

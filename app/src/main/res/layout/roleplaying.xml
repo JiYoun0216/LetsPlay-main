@@ -37,6 +37,7 @@
         android:src="@drawable/menu_button"
         android:layout_marginTop="31dp"
         android:layout_marginStart="839dp"
+        android:background="@null"
         android:contentDescription="menu button" />
 
     <!-- 마이크를 터치하고 말해보자 -->
@@ -46,7 +47,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/mike_touch_text"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="65dp"
         android:visibility="visible">
 
         <TextView
@@ -62,7 +63,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="5dp">
 
         <!-- 아래 채팅창 -->
         <ImageButton

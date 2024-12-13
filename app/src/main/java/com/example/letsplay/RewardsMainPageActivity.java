@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.ImageButton;
 import android.view.View;
 import android.app.Dialog;
@@ -12,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.graphics.drawable.ColorDrawable;
+import android.widget.Toast;
 
 
 import java.util.Objects;
@@ -99,9 +102,10 @@ private void parent_verifyng_popup() {
     // 흔들림 효과 추가
     private void shakeDialog(Dialog dialog) {
         Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
-        View dialogView = Objects.requireNonNull(dialog.getWindow()).getDecorView();
+        View dialogView = dialog.findViewById(R.id.question_text);
         dialogView.startAnimation(shake);
     }
+
 
     private void showSettingPopup() {
         Dialog dialog = new Dialog(this);

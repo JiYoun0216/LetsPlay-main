@@ -52,8 +52,6 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
     private File wavFile;
     private String serverURL_wss = "wss://role-play-api-586976529959.asia-southeast1.run.app/roleplay/stream";
 
-    //role-play-api-586976529959.asia-southeast1.run.app
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -211,21 +209,39 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
     // 사용자 메시지 추가
     public void addUserMessage(String message) {
         ChatMessage userMessage = new ChatMessage(message, true);
+        userMessage.setPending(true);
         chatMessages.add(userMessage);
+
         chatAdapter.notifyItemInserted(chatMessages.size() - 1);
         scrollToBottom();
+
+        simulateTyping(userMessage);
     }
 
+    private void simulateTyping(ChatMessage userMessage) {
+        // 1. 3초 후 GPT 응답 시뮬레이션
+        handler.postDelayed(() -> {
+            // 사용자 메시지의 isPending 상태 해제
+            userMessage.setPending(false);
+            chatAdapter.notifyItemChanged(chatMessages.indexOf(userMessage));
 
+        }, 3000); // 3초 동안 타이핑 애니메이션
+    }
+
+    // GPT 메시지 추가 (딜레이 포함)
     public void addGptMessage(String message) {
         String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
 
-        ChatMessage gptMessage = new ChatMessage(message, false);
-        chatMessages.add(gptMessage);
+        handler.postDelayed(() -> {
+            ChatMessage gptMessage = new ChatMessage(message, false);
 
-        chatAdapter.notifyItemInserted(chatMessages.size() - 1);
-        scrollToBottom();
+            chatMessages.add(gptMessage);
+
+            chatAdapter.notifyItemInserted(chatMessages.size() - 1);
+            scrollToBottom();
+        }, 3000); // 3초 딜레이
     }
+
 
     private void scrollToBottom() {
         chatRecyclerView.scrollToPosition(chatMessages.size() - 1);

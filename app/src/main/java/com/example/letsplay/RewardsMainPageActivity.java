@@ -1,5 +1,6 @@
 package com.example.letsplay;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +11,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.graphics.drawable.ColorDrawable;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class RewardsMainPageActivity extends AppCompatActivity{
@@ -45,6 +47,11 @@ public class RewardsMainPageActivity extends AppCompatActivity{
 private void parent_verifyng_popup() {
     Dialog dialog = new Dialog(this);
     dialog.setContentView(R.layout.parents_quiz); // 기존 ParentsVerificationActivity XML 사용
+
+    // 팝업 배경을 투명하게 설정
+    if (dialog.getWindow() != null) {
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+    }
 
     TextView questionText = dialog.findViewById(R.id.question_text);
     TextView answerText = dialog.findViewById(R.id.answer_text);
@@ -83,13 +90,16 @@ private void parent_verifyng_popup() {
         });
     }
 
+    ImageButton xButton = dialog.findViewById(R.id.x_button);
+    xButton.setOnClickListener(v -> dialog.dismiss()); // 다이얼로그 닫기
+
     dialog.show(); // 팝업 표시
 }
 
     // 흔들림 효과 추가
     private void shakeDialog(Dialog dialog) {
         Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
-        View dialogView = dialog.getWindow().getDecorView();
+        View dialogView = Objects.requireNonNull(dialog.getWindow()).getDecorView();
         dialogView.startAnimation(shake);
     }
 
@@ -97,6 +107,11 @@ private void parent_verifyng_popup() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.setting_popup); // 팝업 레이아웃 설정
         dialog.setCancelable(false); // 외부 터치로 닫히지 않도록 설정
+
+        // 팝업 배경을 투명하게 설정
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
 
         ImageButton xButton = dialog.findViewById(R.id.x_button);
         xButton.setOnClickListener(v -> dialog.dismiss()); // 다이얼로그 닫기

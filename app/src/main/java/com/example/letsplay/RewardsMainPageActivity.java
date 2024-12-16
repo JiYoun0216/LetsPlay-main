@@ -26,17 +26,61 @@ public class RewardsMainPageActivity extends AppCompatActivity{
         ImageButton closeButton = findViewById(R.id.close_button);
         ImageButton firstButton = findViewById(R.id.first_button);
         ImageButton settingButton = findViewById(R.id.setting_button);
+        ImageButton princessButton = findViewById(R.id.princess_button);
+        ImageButton wizardButton = findViewById(R.id.wizard_button);
+        ImageButton doctorButton = findViewById(R.id.doctor_button);
+        ImageButton superheroButton = findViewById(R.id.superhero_button);
+        ImageButton extraButton_1 = findViewById(R.id.extra_button_1);
+        ImageButton extraButton_2 = findViewById(R.id.extra_button_2);
 
         closeButton.setOnClickListener(v -> {
             Intent intent = new Intent(RewardsMainPageActivity.this, EndingActivity.class);
             startActivity(intent);
         });
+
         settingButton.setOnClickListener(v -> {
             parent_verifyng_popup();
         });
 
         firstButton.setOnClickListener(v -> {
             Intent intent = new Intent(RewardsMainPageActivity.this, RoleplayingBackgroundActivity.class);
+            intent.putExtra("message", "안녕! 난 너의 친구야! 나랑 역할놀이 해볼까?");
+            startActivity(intent);
+        });
+
+        princessButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RewardsMainPageActivity.this, RoleplayingBackgroundActivity.class);
+            intent.putExtra("message", "안녕! 난 너의 친구야! 나랑 공주놀이 해볼까?");
+            startActivity(intent);
+        });
+
+        wizardButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RewardsMainPageActivity.this, RoleplayingBackgroundActivity.class);
+            intent.putExtra("message", "안녕! 난 너의 친구야! 나랑 마법사놀이 해볼까?");
+            startActivity(intent);
+        });
+
+        doctorButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RewardsMainPageActivity.this, RoleplayingBackgroundActivity.class);
+            intent.putExtra("message", "안녕! 난 너의 친구야! 나랑 병원놀이 해볼까?");
+            startActivity(intent);
+        });
+
+        superheroButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RewardsMainPageActivity.this, RoleplayingBackgroundActivity.class);
+            intent.putExtra("message", "안녕! 난 너의 친구야! 나랑 슈퍼히어로 놀이 해볼까?");
+            startActivity(intent);
+        });
+
+        extraButton_2.setOnClickListener(v -> {
+            Intent intent = new Intent(RewardsMainPageActivity.this, RoleplayingBackgroundActivity.class);
+            intent.putExtra("message", "안녕! 난 너의 친구야! 나랑 어떤 놀이 해볼까?");
+            startActivity(intent);
+        });
+
+        extraButton_1.setOnClickListener(v -> {
+            Intent intent = new Intent(RewardsMainPageActivity.this, RoleplayingBackgroundActivity.class);
+            intent.putExtra("message", "안녕! 난 너의 친구야! 나랑 어떤 놀이 해볼까?");
             startActivity(intent);
         });
     }
@@ -91,9 +135,9 @@ private void parent_verifyng_popup() {
     }
 
     ImageButton xButton = dialog.findViewById(R.id.x_button);
-    xButton.setOnClickListener(v -> dialog.dismiss()); // 다이얼로그 닫기
+    xButton.setOnClickListener(v -> dialog.dismiss());
 
-    dialog.show(); // 팝업 표시
+    dialog.show();
 }
 
     // 흔들림 효과 추가

@@ -58,6 +58,11 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roleplaying);
 
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("message");
+        if(message != null){
+            addGptMessage(message);
+        }
 
         // 권한 요청
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
@@ -72,9 +77,9 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         // 메뉴 버튼 클릭 이벤트 추가
         ImageButton menuButton = findViewById(R.id.menu_button);
         menuButton.setOnClickListener(v -> {
-            Intent intent = new Intent(RoleplayingBackgroundActivity.this, MenuActivity.class);
+            Intent menuIntent = new Intent(RoleplayingBackgroundActivity.this, MenuActivity.class);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            startActivity(intent);
+            startActivity(menuIntent);
         });
 
         // View 초기화
@@ -83,8 +88,6 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
         rightFrequency = findViewById(R.id.rightFrequency);
 
 
-        // 초기 메시지 추가
-        addGptMessage("안녕! 난 너의 친구야! 나랑 역할놀이 해볼까?");
         // 4초 후 goodtext와 mike_touch_popup 표시
         handler.postDelayed(() -> {
             mike_touch_popup.setVisibility(View.VISIBLE);
@@ -224,7 +227,6 @@ public class RoleplayingBackgroundActivity extends AppCompatActivity {
             // 사용자 메시지의 isPending 상태 해제
             userMessage.setPending(false);
             chatAdapter.notifyItemChanged(chatMessages.indexOf(userMessage));
-
         }, 3000); // 3초 동안 타이핑 애니메이션
     }
 
